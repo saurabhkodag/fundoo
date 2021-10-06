@@ -42,15 +42,7 @@ a{
     color: white;
     background-color: #1a73e8;
 }
-.signup_main{
-    display:flex ;
-    
-    width: 60%;
-    height: 650px;
-    border-radius: 8px;
-    border: 1px solid #dadce0;
-    
-}
+
 .head{
     padding-top: 16px;
     font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
@@ -139,6 +131,19 @@ a{
 .error{
     color: red;
     font-size: 12px;
+}
+.signup_main{
+    display:flex ;
+    
+    width: 60%;
+    height: 650px;
+    border-radius: 8px;
+    border: 1px solid #dadce0;
+    
+}
+.logos{
+   width: 80px;
+    
 }
 
 

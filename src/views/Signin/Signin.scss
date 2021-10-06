@@ -1,14 +1,14 @@
-.main_signin{
+.nmain_signin{
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
 }
-.container_lspace{
+.ncontainer_lspace{
     height: 500px;
     width: 35%;
 }
-.signup_main{
+.nsignin_main{
     display: flex;
     flex-direction: column;
     margin-top: 10%;
@@ -16,11 +16,11 @@
     border: 1px solid #dadce0;
     height: 500px;
 }
-.container_rspace{
+.ncontainer_rspace{
     height: 500px;
     width: 35%;
 }
-.head{
+.nhead{
     display: flex;
     width: 100%;
     justify-content: center;
@@ -34,7 +34,7 @@
     margin-bottom: 0;
     margin-top: 0;
 }
-.fundoh{
+.nfundoh{
     display: flex;
     justify-content: center;
     width: 100%;
@@ -47,7 +47,7 @@
     padding-bottom: 0;
     padding-top: 8px;
 }
-.fundohh{
+.nfundohh{
     display: flex;
     justify-content: center;
     width: 100%;
@@ -60,15 +60,15 @@
     padding-bottom: 0;
     padding-top: 8%;
 }
-.content{
+.ncontent{
     padding: 5% 5% 0% 5%;
 }
-.bt{
+.nbt{
     padding:10%;
     display: flex;
     
 }
-.Pass{
+.nPass{
     margin-right: 5%;
 }
 a{
@@ -83,7 +83,7 @@ a{
     color: #1a73e8;
     padding-right:40% ;
 }
-.link{
+.nlink{
     padding-top: 2%;
     text-align: start;
     font-family: "Google Sans",Roboto,Arial,sans-serif;
@@ -95,7 +95,7 @@ a{
     color: #1a73e8;
     padding-left:5% ;
 }
-.next{
+.nnext{
     padding: 10px 24px 10px 24px;
     font-family: "Google Sans",Roboto,Arial,sans-serif;
     font-size: .875rem;
@@ -105,4 +105,14 @@ a{
     text-decoration: none;
     color: white;
     background-color: #1a73e8;
+}
+.content_logoss{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 2%;
+}
+.logoss{
+    width: 80px;
+    
 }
