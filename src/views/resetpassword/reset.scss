@@ -1,14 +1,15 @@
-.fmain_signin{
+
+.rmain_signin{
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
 }
-.fcontainer_lspace{
+.rcontainer_lspace{
     height: 500px;
     width: 35%;
 }
-.fsignin_main{
+.rsignin_main{
     display: flex;
     flex-direction: column;
     margin-top: 10%;
@@ -17,11 +18,11 @@
     border-radius: 10px;
     height: 500px;
 }
-.fcontainer_rspace{
+.rcontainer_rspace{
     height: 500px;
     width: 35%;
 }
-.fhead{
+.rhead{
     display: flex;
     width: 100%;
     justify-content: center;
@@ -35,7 +36,7 @@
     margin-bottom: 0;
     margin-top: 0;
 }
-.ffundoh{
+.rfundoh{
     display: flex;
     justify-content: center;
     width: 100%;
@@ -48,7 +49,7 @@
     padding-bottom: 0;
     padding-top: 8px;
 }
-.ffundohh{
+.rfundohh{
     display: flex;
     justify-content: center;
     width: 100%;
@@ -61,17 +62,17 @@
     padding-bottom: 0;
     padding-top: 8%;
 }
-.fcontent{
+.rcontent{
     padding: 5% 5% 0% 5%;
 }
-.fbt{
-    padding:10%;
+.rbt{
+    padding:40% 10% 10% 10%;
     display: flex;
     justify-content: flex-end;
 }
     
 
-.fPass{
+.rPass{
     margin-right: 5%;
 }
 a{
@@ -86,7 +87,7 @@ a{
     color: #1a73e8;
     padding-right:40% ;
 }
-.flink{
+.rlink{
     padding-top: 2%;
     text-align: start;
     font-family: "Google Sans",Roboto,Arial,sans-serif;
@@ -98,7 +99,7 @@ a{
     color: #1a73e8;
     padding-left:5% ;
 }
-.fnext{
+.rnext{
     padding: 10px 24px 10px 24px;
     font-family: "Google Sans",Roboto,Arial,sans-serif;
     font-size: .875rem;
@@ -109,32 +110,33 @@ a{
     color: white;
     background-color: #1a73e8;
 }
-.fcontent_logoss{
+.rcontent_logoss{
     display: flex;
     justify-content: center;
     width: 100%;
     padding-top: 2%;
 }
-.flogoss{
+.rlogoss{
     width: 80px;
     
 }
 @media screen and (max-width: 900px) {
-    .fcontainer_lspace , .rcontainer_rspace{
+    .rcontainer_lspace , .rcontainer_rspace{
         width: 20%;
     }
-    .fsignin_main{
+    .rsignin_main{
         width: 60%;
         
     }
     
 }
+
 @media screen and (max-width: 600px) {
-    .fcontainer_lspace , .fcontainer_rspace{
+    .rcontainer_lspace , .rcontainer_rspace{
         width: 0%;
     }
     
-    .fsignin_main{
+    .rsignin_main{
         width: 100%;
         border:none;
         padding: 0%;
@@ -142,7 +144,8 @@ a{
 
 }
 @media screen and (max-width: 360px) {
-.fcontent{
+.rcontent{
     padding: 0%;
 }
 }
+

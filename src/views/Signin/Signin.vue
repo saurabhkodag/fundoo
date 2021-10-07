@@ -6,8 +6,10 @@
     <div class="content_logoss">
     <img class="logoss" src="@/assets/fundoo.png">
     </div>
-    <div class="nhead">Sign in </div>        
-    <div class="nfundoh">Use your Google Account</div> 
+    
+    <Texts v-bind:classes="'nhead'" v-bind:textss="'Sign in'"/>
+ 
+    <Texts v-bind:classes="'nfundoh'" v-bind:textss="'Use your Google Account'"/>
     <div class="ncontent"> 
     <Input v-bind:inputType="'text'" v-bind:id="'Email or phone'" v-bind:placeHolder="'Email or phone'" v-bind:error="false" />
     </div>
@@ -33,10 +35,12 @@
 </style>
 <script>
 import Input from '@/components/Input/TextInput.vue';
+import Texts from '@/components/text/text.vue'
 export default{
     
     components:{
-        Input
+        Input,
+        Texts,
     },
 }
 </script>
