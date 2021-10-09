@@ -6,9 +6,11 @@
     height: 150px;
 }
 .container_lspace{
+    display: flex;
     width: 20%;
 }
 .container_rspace{
+    display: flex;
     width: 20%;
 }
 .bt{
@@ -145,5 +147,46 @@ a{
    width: 80px;
     
 }
+@media screen and (max-width: 900px) {
+    .signup_right{
+        display: none;
+    }
+    
+    .signup_left{
+        width: 100%;
+    }
+    
+}
+@media screen and (max-width: 600px) {
+    .container_lspace , .container_rspace{
+        width: 0%;
+        
+    }
+    .signup_right{
+        width: 0%;
+        display: none;
+    }
+    
+    .signup_left{
+        width: 100%;
+        border: none;
+    }
+    .names{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 25%;
+    }
+    .uname{
+        width: 98%;
+    }
+    .password{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 25%;
+    }
+    .signup_main{
+        width: 100%;
+        border: none;
+    }
 
-
+}

@@ -15,8 +15,8 @@
                 {{v$.fname.$errors[0].$message}}
             </span>
             <div class="uname">
-            <!-- <input type="text" class="uname" placeholder="Username" name="Username" v-model="state.email"> -->
-            <Input v-bind:inputType="'password'" v-bind:id="'Username'" v-bind:placeHolder="'Username'" v-bind:error="false" />
+            <input type="text" class="uname" placeholder="Username" name="Username" v-model="state.email">
+            <!-- <Input v-bind:inputType="'password'" v-bind:id="'Username'" v-bind:placeHolder="'Username'" v-bind:error="false" /> -->
             </div>
             <span class="error" v-if="v$.email.$error">
                 {{v$.email.$errors[0].$message}}
