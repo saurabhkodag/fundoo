@@ -66,9 +66,10 @@
     padding: 5% 5% 0% 5%;
 }
 .rbt{
-    padding:40% 10% 10% 10%;
+    padding:10% 10% 10% 10%;
     display: flex;
     justify-content: flex-end;
+    
 }
     
 
@@ -109,6 +110,8 @@ a{
     text-decoration: none;
     color: white;
     background-color: #1a73e8;
+    border: none;
+    border-radius: 5px;
 }
 .rcontent_logoss{
     display: flex;
@@ -119,6 +122,10 @@ a{
 .rlogoss{
     width: 80px;
     
+}
+.error{
+    color: red;
+    padding: 1% 0% 1% 1%;
 }
 @media screen and (max-width: 900px) {
     .rcontainer_lspace , .rcontainer_rspace{

@@ -9,8 +9,14 @@
  
     <Texts v-bind:classes="'nhead'" v-bind:textss="'Reset Password'"/>
     <div class="rcontent"> 
-    <Input v-bind:inputType="'text'" v-bind:id="'Email or phone'" v-bind:placeHolder="'Password'" v-bind:error="false" />
-    <Input v-bind:inputType="'text'" v-bind:id="'Email or phone'" v-bind:placeHolder="'Confirm'" v-bind:error="false" />
+    <Input v-bind:inputType="'text'" v-bind:id="'Email or phone'" v-bind:placeHolder="'Password'"  v-bind:error="v$.password.password.$error" v-model:data="state.password.password" />
+     <span class="error" v-if="v$.password.password.$error">
+                {{v$.password.password.$errors[0].$message}}
+            </span>
+    <Input v-bind:inputType="'text'" v-bind:id="'Email or phone'" v-bind:placeHolder="'Confirm'" v-bind:error="v$.password.confirm.$error" v-model:data="state.password.confirm"/>
+    <span class="error" v-if="v$.password.confirm.$error">
+                {{v$.password.confirm.$errors[0].$message}}
+            </span>
     </div>
     
     <div class="rbt">
@@ -27,6 +33,9 @@
 @import './reset.scss'
 </style>
 <script>
+import useValidate from '@vuelidate/core'
+import { required ,email,minLength,sameAs,helpers} from '@vuelidate/validators'
+import {reactive,computed} from 'vue'
 import Input from '@/components/Input/TextInput.vue';
 import Texts from '@/components/text/text.vue'
 export default{
@@ -35,5 +44,54 @@ export default{
         Input,
         Texts,
     },
+     setup(){
+        const state=reactive({
+            fname:'',
+            lname:'',
+            email:'',
+            password:{
+                password:'',
+                confirm:'',
+            },
+        })
+        const mustBeLearnVue=(value)=>value.includes('learnvue')
+        const rules = computed(()=>{
+            return {
+                fname:{required},
+                lname:{required},
+                email:{
+                required,
+                email,
+            mustBeLearnVue:helpers.withMessage(
+                'Must be learnvue',
+                mustBeLearnVue
+            ),
+                },
+                password:{
+                password:{required , minLength:minLength(6)},
+                confirm:{required , sameAs:sameAs(state.password.password)
+                },
+            },
+            }
+        })
+        const v$=useValidate(rules,state)
+        return {
+            state,
+            v$,
+        }
+    },
+    
+    methods:{
+        submitForm(){
+            
+            this.v$.$validate()
+            if(!this.v$.$error){
+            alert("Form successfully submitted");
+            }
+            else{
+              alert("not successfully submitted");   
+            }
+        }
+    }
 }
 </script>

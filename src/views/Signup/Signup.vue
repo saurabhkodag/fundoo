@@ -8,7 +8,7 @@
             <img class="logos" src="@/assets/fundoo.png">
             <div class="head">Create your Google Account</div>
             <div class="names">
-            <Input v-bind:inputType="'text'" v-bind:id="'fname'" v-bind:placeHolder="'First Name'" v-bind:error="false" />
+            <Input v-bind:inputType="'text'" v-bind:id="'fname'" v-bind:placeHolder="'First Name'" v-bind:error="v$.fname.$error" v-model:data.sync="state.fname"/>
             <Input v-bind:inputType="'text'" v-bind:id="'Last Name'" v-bind:placeHolder="'Last Name'" v-bind:error="false" />
             </div>
             <span class="error" v-if="v$.fname.$error">

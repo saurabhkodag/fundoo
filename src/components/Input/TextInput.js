@@ -14,5 +14,10 @@ export default{
         error: {
             type: Boolean
         }
+    },
+    data(){
+        return{
+            inputData: this.data
+        }
     }
 }
