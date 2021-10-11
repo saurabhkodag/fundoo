@@ -29,13 +29,14 @@
         </div>
 </div>
 </template>
-<style scoped>
-@import './reset.scss'
-</style>
+<!--<script type='module' src='./reset.js'></script>-->
+
 <script>
+
 import useValidate from '@vuelidate/core'
 import { required ,email,minLength,sameAs,helpers} from '@vuelidate/validators'
 import {reactive,computed} from 'vue'
+import axios from "axios";
 import Input from '@/components/Input/TextInput.vue';
 import Texts from '@/components/text/text.vue'
 export default{
@@ -83,15 +84,27 @@ export default{
     
     methods:{
         submitForm(){
-            
+           
             this.v$.$validate()
-            if(!this.v$.$error){
-            alert("Form successfully submitted");
-            }
-            else{
-              alert("not successfully submitted");   
-            }
+            // if(!this.v$.$error){
+                let data={
+                    email:this.state.email,
+                    
+                };
+                axios.post("http://localhost:3200/reset/"+this.$route.params.token,data).then((res)=>{
+                    console.log(res);
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
+
+            
+            // }
+            
         }
     }
 }
 </script>
+<style scoped>
+@import './reset.scss'
+</style>

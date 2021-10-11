@@ -9,14 +9,14 @@
             <div class="head">Create your Google Account</div>
             <div class="names">
             <Input v-bind:inputType="'text'" v-bind:id="'fname'" v-bind:placeHolder="'First Name'" v-bind:error="v$.fname.$error" v-model:data.sync="state.fname"/>
-            <Input v-bind:inputType="'text'" v-bind:id="'Last Name'" v-bind:placeHolder="'Last Name'" v-bind:error="false" />
+            <Input v-bind:inputType="'text'" v-bind:id="'Last Name'" v-bind:placeHolder="'Last Name'" v-bind:error="v$.lname.$error" v-model:data.sync="state.lname" />
             </div>
             <span class="error" v-if="v$.fname.$error">
                 {{v$.fname.$errors[0].$message}}
             </span>
             <div class="uname">
             <!-- <input type="text" class="uname" placeholder="Username" name="Username" v-model="state.email"> -->
-            <Input v-bind:inputType="'password'" v-bind:id="'Username'" v-bind:placeHolder="'Username'" v-bind:error="false" />
+            <Input v-bind:inputType="'text'" v-bind:id="'Username'" v-bind:placeHolder="'Username'" v-bind:error="v$.email.$error" v-model:data.sync="state.email" />
             </div>
             <span class="error" v-if="v$.email.$error">
                 {{v$.email.$errors[0].$message}}
@@ -28,7 +28,7 @@
             <!-- <input type="text" class="Pass" placeholder="Password" name="Password" v-model="state.password.password"> -->
             <Input v-bind:inputType="'password'" v-bind:id="'password'" v-bind:placeHolder="'Password'" v-bind:error="false" />
             <!-- <input type="text" class="Confirm" placeholder="Confirm" name="Confirm" v-model="state.password.confirm"> -->
-            <Input v-bind:inputType="'password'" v-bind:id="'Confirm'" v-bind:placeHolder="'Confirm'" v-bind:error="false" />
+            <Input v-bind:inputType="'password'" v-bind:id="'Confirm'" v-bind:placeHolder="'Confirm'" v-bind:error="v$.password.confirm.$error" v-model:data.sync="state.password.confirm" />
             </div>
             <span class="error" v-if="v$.password.password.$error">
                 {{v$.password.password.$errors[0].$message}}
@@ -62,6 +62,7 @@
 import useValidate from '@vuelidate/core'
 import { required ,email,minLength,sameAs,helpers} from '@vuelidate/validators'
 import {reactive,computed} from 'vue'
+import axios from "axios";
 import Input from '@/components/Input/TextInput.vue';
 export default{
     
@@ -104,37 +105,29 @@ export default{
             v$,
         }
     },
-    // data(){
-    //     return{
-    //         v$:useValidate(),
-    //         email:'',
-    //         password:{
-    //             password:'',
-    //             confirm:'',
-    //         },
-    //     }
-    // },
-    // validations(){
-    //     return{
-    //         email:{required},
-    //         password:{
-    //             password:{required},
-    //             confirm:{required},
-    //         },
-    //     }
-    // },
     methods:{
         submitForm(){
             
+
             this.v$.$validate()
-            if(!this.v$.$error){
-            alert("Form successfully submitted");
-            }
-            else{
-              alert("not successfully submitted");   
-            }
-        }
+            
+                let data={
+                    firstName:this.state.fname,
+                    lastName:this.state.lname,
+                    email:this.state.email,
+                    service:"active",
+                    password:this.state.password.confirm
+                    
+                };
+                axios.post("http://localhost:3200/register",data).then((res)=>{
+                    console.log(res);
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
+        
     }
+}
 }
 </script>
 

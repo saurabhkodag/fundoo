@@ -21,7 +21,7 @@ const routes = [
     component:forgetEmail
   },
   {
-    path: '/reset',
+    path: '/reset/:token',
     name: 'reset',
     component:reset
   }

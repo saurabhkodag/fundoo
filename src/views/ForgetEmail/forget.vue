@@ -34,7 +34,8 @@ import useValidate from '@vuelidate/core'
 import { required ,email,minLength,sameAs,helpers} from '@vuelidate/validators'
 import {reactive,computed} from 'vue'
 import Input from '@/components/Input/TextInput.vue';
-import Texts from '@/components/text/text.vue'
+import Texts from '@/components/text/text.vue';
+import axios from "axios";
 export default{
     
     components:{
@@ -81,13 +82,20 @@ export default{
     methods:{
         submitForm(){
             
-            this.v$.$validate()
-            if(!this.v$.$error){
-            alert("Form successfully submitted");
-            }
-            else{
-              alert("not successfully submitted");   
-            }
+            
+            // if(!this.v$.$error){
+                let data={
+                    email:this.state.email
+                    
+                };
+                console.log(this.state.email);
+                axios.post("http://localhost:3200/reset",data).then((res)=>{
+                    console.log(res);
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
+
         }
     }
 }

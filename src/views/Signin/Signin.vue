@@ -17,10 +17,10 @@
                 {{v$.email.$errors[0].$message}}
     </span>
     <div class="ncontent"> 
-    <Input v-bind:inputType="'password'" v-bind:id="'password'" v-bind:placeHolder="'password'" v-bind:error="v$.password.password.$error" v-model:data.sync="state.password.password" />
+    <Input v-bind:inputType="'text'" v-bind:id="'password'" v-bind:placeHolder="'password'" v-bind:error="v$.password.$error" v-model:data.sync="state.password" />
     </div>
-    <span class="error" v-if="v$.password.password.$error">
-                {{v$.password.password.$errors[0].$message}}
+    <span class="error" v-if="v$.password.$error">
+                {{v$.password.$errors[0].$message}}
     </span>
     <a class="nlink" href ="/forgetemail">Forget Email?</a>
     <div class="nfundohh">Not your computer? Use Guest mode to sign in privately.</div> 
@@ -35,15 +35,18 @@
         </div>
 </div>
 </template>
+
 <style scoped>
 @import './Signin.scss'
 </style>
+
 <script>
 import useValidate from '@vuelidate/core'
-import { required ,email,minLength,sameAs,helpers} from '@vuelidate/validators'
+import { required ,email,minLength,helpers} from '@vuelidate/validators'
 import {reactive,computed} from 'vue'
 import Input from '@/components/Input/TextInput.vue';
-import Texts from '@/components/text/text.vue'
+import Texts from '@/components/text/text.vue';
+import axios from "axios";
 export default{
     
     components:{
@@ -52,19 +55,12 @@ export default{
     },
      setup(){
         const state=reactive({
-            fname:'',
-            lname:'',
             email:'',
-            password:{
-                password:'',
-                confirm:'',
-            },
+            password:'',
         })
         const mustBeLearnVue=(value)=>value.includes('learnvue')
         const rules = computed(()=>{
             return {
-                fname:{required},
-                lname:{required},
                 email:{
                 required,
                 email,
@@ -73,11 +69,7 @@ export default{
                 mustBeLearnVue
             ),
                 },
-                password:{
-                password:{required , minLength:minLength(6)},
-                confirm:{required , sameAs:sameAs(state.password.password)
-                },
-            },
+                password:{required , minLength:minLength(6) },
             }
         })
         const v$=useValidate(rules,state)
@@ -89,14 +81,20 @@ export default{
     
     methods:{
         submitForm(){
-            
             this.v$.$validate()
-            if(!this.v$.$error){
-            alert("Form successfully submitted");
-            }
-            else{
-              alert("not successfully submitted");   
-            }
+            console.log(this.state.email);
+            
+            let data={
+                    
+                    email:this.state.email,
+                    password:this.state.password,
+                };
+                axios.post("http://localhost:3200/login",data).then((res)=>{
+                    console.log(res);
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
         }
     }
 }

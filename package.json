@@ -10,7 +10,9 @@
   "dependencies": {
     "@vuelidate/core": "^2.0.0-alpha.27",
     "@vuelidate/validators": "^2.0.0-alpha.23",
+    "axios": "^0.22.0",
     "core-js": "^3.6.5",
+    "node-gyp": "^8.2.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
