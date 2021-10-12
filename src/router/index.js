@@ -4,7 +4,7 @@ import Home from '../views/Signup/Signup.vue'
 import Signin from '../views/Signin/Signin.vue'
 import forgetEmail from '../views/ForgetEmail/forget.vue'
 import reset from '../views/resetpassword/reset.vue'
-import dashboard from '../views/dashboard/dashboard'
+import dashboard from '../views/dashboard/dashboard.vue'
 const routes = [
   {
     path: '/',

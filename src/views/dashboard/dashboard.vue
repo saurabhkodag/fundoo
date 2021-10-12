@@ -1,12 +1,11 @@
 <template>
-    <header/>
+    <headerr/>
 </template>
 <script>
-import { defineComponent } from '@vue/composition-api'
-import header from '@/components/header/header.vue'
+import headerr from '@/components/header/header.vue'
 export default {
     components: {
-        header
+        headerr
     },
 }
 </script>

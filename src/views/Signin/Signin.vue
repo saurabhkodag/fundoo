@@ -36,66 +36,9 @@
 </div>
 </template>
 
+
+<script type='module' src='./Signin.js'></script>
+
 <style scoped>
 @import './Signin.scss'
 </style>
-
-<script>
-import useValidate from '@vuelidate/core'
-import { required ,email,minLength,helpers} from '@vuelidate/validators'
-import {reactive,computed} from 'vue'
-import Input from '@/components/Input/TextInput.vue';
-import Texts from '@/components/text/text.vue';
-import axios from "axios";
-export default{
-    
-    components:{
-        Input,
-        Texts,
-    },
-     setup(){
-        const state=reactive({
-            email:'',
-            password:'',
-        })
-        const mustBeLearnVue=(value)=>value.includes('learnvue')
-        const rules = computed(()=>{
-            return {
-                email:{
-                required,
-                email,
-            mustBeLearnVue:helpers.withMessage(
-                'Must be learnvue',
-                mustBeLearnVue
-            ),
-                },
-                password:{required , minLength:minLength(6) },
-            }
-        })
-        const v$=useValidate(rules,state)
-        return {
-            state,
-            v$,
-        }
-    },
-    
-    methods:{
-        submitForm(){
-            this.v$.$validate()
-            console.log(this.state.email);
-            
-            let data={
-                    
-                    email:this.state.email,
-                    password:this.state.password,
-                };
-                axios.post("http://localhost:3200/login",data).then((res)=>{
-                    console.log(res);
-                })
-                .catch((err)=>{
-                    console.log(err);
-                })
-        }
-    }
-}
-</script>

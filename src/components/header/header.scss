@@ -1,0 +1,105 @@
+.h_main{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    padding-bottom: 5px;
+    border-bottom:1px grey solid;
+}
+.l_main{
+    width: 10%;
+    height: 20px;
+    padding: 8px;
+}
+.c_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+
+    padding: 0%;
+}
+.r_main{
+    display: flex;
+    width: 30%;
+    padding: 8px 8px 8px 40px;
+}
+.head_icon ,.pp{
+    padding: 0% 3% 0% 3%;
+}
+.head_icon1{
+    padding: 0% 3% 0% 13%;
+}
+
+.pp{
+    border-radius: 50%;
+}
+.bt_n{
+    border:none;
+    background-color: white;
+}
+.bt_n button:hover {
+    background-color: rgba(60,64,67,0.08); 
+
+    border-radius: 50%;
+  }
+  
+  .bt_n::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+.h_text{
+font-family: 'Product Sans',Arial,sans-serif;
+    font-size: 22px;
+    line-height: 24px;
+    padding-left: 3%;
+    color: #5f6368;
+    height: 20px;
+}
+.l_main{
+    display: flex;
+    align-items: center;
+}
+.h_search{
+    background: white;
+    width: 100%;
+    margin: 5%;
+    height: 40px;
+    border: gray 1px solid;
+    box-shadow: 0.1px 0.1px 0.1px 0.1px grey;
+    border-radius: 10px;
+    
+}
+form.example input[type=text] {
+    
+    font-size: 17px;
+    border: none;
+    float: right;
+    width: 92%;
+    background: white;
+    height: 40px;
+  }
+  
+  form.example button {
+    float: right;
+    width: 8%;
+    background-color: white;
+    height: 40px;
+    color: white;
+    font-size: 17px;
+    border:none;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background-color: rgba(60,64,67,0.08); 
+
+    border-radius: 50%;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

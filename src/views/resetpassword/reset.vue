@@ -36,7 +36,7 @@
 import useValidate from '@vuelidate/core'
 import { required ,email,minLength,sameAs,helpers} from '@vuelidate/validators'
 import {reactive,computed} from 'vue'
-import axios from "axios";
+import axiosclass from '@/service/axiosservice.js'
 import Input from '@/components/Input/TextInput.vue';
 import Texts from '@/components/text/text.vue'
 export default{
@@ -84,22 +84,27 @@ export default{
     
     methods:{
         submitForm(){
-           
-            this.v$.$validate()
-            // if(!this.v$.$error){
-                let data={
+           let data={
                     email:this.state.email,
                     
                 };
-                axios.post("/reset/"+this.$route.params.token,data).then((res)=>{
-                    console.log(res);
-                })
-                .catch((err)=>{
-                    console.log(err);
-                })
+           const urls="/reset/"+this.$route.params.token;
+            axiosclass.operation(data,urls); 
+            // this.v$.$validate()
+            // // if(!this.v$.$error){
+            //     let data={
+            //         email:this.state.email,
+                    
+            //     };
+            //     axios.post("/reset/"+this.$route.params.token,data).then((res)=>{
+            //         console.log(res);
+            //     })
+            //     .catch((err)=>{
+            //         console.log(err);
+            //     })
 
             
-            // }
+            // // }
             
         }
     }
