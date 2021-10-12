@@ -91,7 +91,7 @@ export default{
                     email:this.state.email,
                     
                 };
-                axios.post("http://localhost:3200/reset/"+this.$route.params.token,data).then((res)=>{
+                axios.post("/reset/"+this.$route.params.token,data).then((res)=>{
                     console.log(res);
                 })
                 .catch((err)=>{

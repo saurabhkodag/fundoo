@@ -4,6 +4,7 @@ import Home from '../views/Signup/Signup.vue'
 import Signin from '../views/Signin/Signin.vue'
 import forgetEmail from '../views/ForgetEmail/forget.vue'
 import reset from '../views/resetpassword/reset.vue'
+import dashboard from '../views/dashboard/dashboard'
 const routes = [
   {
     path: '/',
@@ -24,7 +25,12 @@ const routes = [
     path: '/reset/:token',
     name: 'reset',
     component:reset
-  }
+  },
+  {
+    path:'/dashboard',
+    name:'dashboard',
+    component:dashboard
+  },
 
 ]
 
