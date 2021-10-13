@@ -1,0 +1,12 @@
+.sidebarmain{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+.sidecontent{
+    display: flex;
+    align-items: left;
+    width: 100%;
+    height: 40px;
+    background-color: gray;
+}

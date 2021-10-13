@@ -4,8 +4,8 @@ import { required ,email,minLength,helpers} from '@vuelidate/validators'
 import {reactive,computed} from 'vue'
 import Input from '@/components/Input/TextInput.vue';
 import Texts from '@/components/text/text.vue';
-
-import axiosclass from '@/service/axiosservice.js'
+import axios from "axios";
+// import axiosclass from '@/service/axiosservice.js'
 export default{
     
     components:{
@@ -49,9 +49,16 @@ export default{
                     email:this.state.email,
                     password:this.state.password,
                 };
-                const urls="/login";
-            axiosclass.operation(data,urls); 
-                
+            
+        axios.post("/login",data).then((res)=>{
+                console.log(res);
+                localStorage.setItem("token",res.data[0].token);
+                this.$router.push({ name: "dashboard" });
+
+         })
+         .catch((err)=>{
+             console.log(err);
+         })
         }
     }
 }
