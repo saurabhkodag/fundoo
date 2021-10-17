@@ -1,14 +1,15 @@
 <template>
-<Input/>
+
 <Texts/>
+ <div class="infoblock">
     <div v-for="objj in this.response" :key="objj.id">      
-      <p>
-          
+     
+          <div class="eachblock">
           {{objj.description}}
-          
-      </p>
+          </div>
       </div>
-     <button type="button" class="bt" @click="submitForm()">Close</button>
+      </div>
+    
 </template>
 <script>
 import useValidate from '@vuelidate/core'
@@ -16,7 +17,7 @@ import { required ,email,minLength,sameAs,helpers} from '@vuelidate/validators'
 import {reactive,computed} from 'vue'
 import axios from "axios";
 // import axiosclass from '@/service/axiosservice.js'
-import Input from '@/components/Input/TextInput.vue';
+// import Input from '@/components/Input/TextInput.vue';
 import Texts from '@/components/text/text.vue'
 export default{
     data(){
@@ -24,8 +25,22 @@ export default{
         response:"yes",
         }
     },
+    created() {
+        let newdata={
+                    password:this.state.confirm,
+                    
+                };
+                axios.get("http://localhost:3200/noteget",newdata).then((res)=>{
+                   
+                   this.response=res.data;
+                   console.log(this.response)
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
+    },
     components:{
-        Input,
+       
         Texts,
     },
      setup(){
@@ -95,3 +110,6 @@ export default{
     }
 }
 </script>
+<style scoped>
+@import './getvue.scss'
+</style>

@@ -4,8 +4,9 @@
     <sidebar/>
     <div class="content_right">
     <searchn/>
-    
-    <!-- <notes/> -->
+    <div class="content_right_notes">
+    <notes/>
+    </div>
     </div>
     </div>
 </template>
@@ -14,13 +15,13 @@
 import headerr from '@/components/header/header.vue'
 import sidebar from '@/components/SideNavigation/SideNavigation.vue'
 import searchn from '@/components/notes_search/search.vue';
-// import notes from '@/components/getnotes/get.vue'
+import notes from '@/components/getnotes/get.vue'
 export default {
     components: {
         headerr,
         sidebar,
         searchn,
-        // notes,
+        notes,
     },
     created(){
         if(localStorage.getItem("token")==undefined){
