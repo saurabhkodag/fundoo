@@ -12,16 +12,19 @@
     <Texts v-bind:classes="'nfundoh'" v-bind:textss="'Use your Google Account'"/>
     <div class="ncontent"> 
     <Input v-bind:inputType="'text'" v-bind:id="'Email or phone'" v-bind:placeHolder="'Email or phone'" v-bind:error="v$.email.$error" v-model:data.sync="state.email" />
-    </div>
+    
     <span class="error" v-if="v$.email.$error">
                 {{v$.email.$errors[0].$message}}
     </span>
+    </div>
     <div class="ncontent"> 
     <Input v-bind:inputType="'text'" v-bind:id="'password'" v-bind:placeHolder="'password'" v-bind:error="v$.password.$error" v-model:data.sync="state.password" />
-    </div>
     <span class="error" v-if="v$.password.$error">
                 {{v$.password.$errors[0].$message}}
-    </span>
+     </span>
+    </div>
+    
+    
     <a class="nlink" href ="/forgetemail">Forget Email?</a>
     <div class="nfundohh">Not your computer? Use Guest mode to sign in privately.</div> 
     <a class="nlink" href ="#">Learn More</a>

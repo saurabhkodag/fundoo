@@ -1,38 +1,15 @@
-
-   
 <template>
-<div class="rmain_signin">
-<div class="rcontainer_lspace">
-        </div>
-    <div class="rsignin_main">
-    <div class="rcontent_logoss">
-    <img class="rlogoss" src="@/assets/fundoo.png">
-    </div>
- 
-    <Texts v-bind:classes="'nhead'" v-bind:textss="'Reset Password'"/>
-    <div class="rcontent"> 
-    <Input v-bind:inputType="'text'" v-bind:id="'Email or phone'" v-bind:placeHolder="'Password'"  v-bind:error="v$.password.password.$error" v-model:data="state.password.password" />
-     <span class="error" v-if="v$.password.password.$error">
-                {{v$.password.password.$errors[0].$message}}
-            </span>
-    <Input v-bind:inputType="'text'" v-bind:id="'Email or phone'" v-bind:placeHolder="'Confirm'" v-bind:error="v$.password.confirm.$error" v-model:data="state.password.confirm"/>
-    <span class="error" v-if="v$.password.confirm.$error">
-                {{v$.password.confirm.$errors[0].$message}}
-            </span>
-    </div>
-    
-    <div class="rbt">
-    <a href="signin">Sign in instead</a>  
-    <button class="rnext" @click="submitForm">Next</button>
-    </div>
-    </div>
-    <div class="rcontainer_rspace">
-
-        </div>
-</div>
+<Input/>
+<Texts/>
+    <div v-for="objj in this.response" :key="objj.id">      
+      <p>
+          
+          {{objj.description}}
+          
+      </p>
+      </div>
+     <button type="button" class="bt" @click="submitForm()">Close</button>
 </template>
-<!--<script type='module' src='./reset.js'></script>-->
-
 <script>
 import useValidate from '@vuelidate/core'
 import { required ,email,minLength,sameAs,helpers} from '@vuelidate/validators'
@@ -42,7 +19,11 @@ import axios from "axios";
 import Input from '@/components/Input/TextInput.vue';
 import Texts from '@/components/text/text.vue'
 export default{
-    
+    data(){
+        return{
+        response:"yes",
+        }
+    },
     components:{
         Input,
         Texts,
@@ -85,7 +66,7 @@ export default{
     },
     
     methods:{
-         submitForm(){
+        submitForm(){
         //     this.v$.$validate()
         //    let data={
         //             email:this.state.email,
@@ -95,13 +76,14 @@ export default{
         //     axiosclass.operation(data,urls); 
             this.v$.$validate()
             // if(!this.v$.$error){
-                // let newdata={
-                //     password:this.state.password.confirm,
+                let newdata={
+                    password:this.state.confirm,
                     
-                // };
-             axios.patch("http://localhost:3200/reset_password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTNkZGE5NDVhN2Q3ZTQ0ZjE5NTNjMTkiLCJpYXQiOjE2MzE2MjEwNDR9.VrFo4YaxeSSnDUl7xV4d-ZsXPRQdmdTgQ4rJf5PhbKc",this.state.password.confirm).then((res)=>{
+                };
+                axios.get("http://localhost:3200/noteget",newdata).then((res)=>{
                    
-                   console.log(res);
+                   this.response=res.data;
+                   console.log(this.response)
                 })
                 .catch((err)=>{
                     console.log(err);
@@ -113,6 +95,3 @@ export default{
     }
 }
 </script>
-<style scoped>
-@import './reset.scss'
-</style>

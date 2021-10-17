@@ -12,10 +12,11 @@
     <Texts v-bind:classes="'ffundoh'" v-bind:textss="'Enter your phone number or recovery email'"/>
     <div class="fcontent"> 
     <Input v-bind:inputType="'text'" v-bind:id="'Email or phone'" v-bind:placeHolder="'Email or phone'" v-bind:error="v$.email.$error" v-model:data.sync="state.email" />
-    </div>
-            <span class="error" v-if="v$.email.$error">
+    <span class="error" v-if="v$.email.$error">
                 {{v$.email.$errors[0].$message}}
-            </span>
+    </span>
+    </div>
+            
     <div class="fbt">
             
             <button class="fnext" @click="submitForm">Next</button>
@@ -58,7 +59,7 @@ export default{
                 fname:{required},
                 lname:{required},
                 email:{
-                required,
+                required:helpers.withMessage("Enter Email",required),
                 email,
             mustBeLearnVue:helpers.withMessage(
                 'Must be learnvue',
@@ -66,7 +67,8 @@ export default{
             ),
                 },
                 password:{
-                password:{required , minLength:minLength(6)},
+                password:{required:helpers.withMessage("Enter Password",required) ,
+                 minLength:helpers.withMessage("Min length of 6 required",minLength(6))},
                 confirm:{required , sameAs:sameAs(state.password.password)
                 },
             },
@@ -82,7 +84,7 @@ export default{
     methods:{
         submitForm(){
             
-            
+            this.v$.$validate()
             // if(!this.v$.$error){
                 let data={
                     email:this.state.email

@@ -2,17 +2,25 @@
     <headerr/>
     <div class="content-div">
     <sidebar/>
+    <div class="content_right">
+    <searchn/>
+    
+    <!-- <notes/> -->
+    </div>
     </div>
 </template>
 <script>
 
 import headerr from '@/components/header/header.vue'
 import sidebar from '@/components/SideNavigation/SideNavigation.vue'
-// import sidebar from '@/components/sidebar/sidebar.vue'
+import searchn from '@/components/notes_search/search.vue';
+// import notes from '@/components/getnotes/get.vue'
 export default {
     components: {
         headerr,
-        sidebar
+        sidebar,
+        searchn,
+        // notes,
     },
     created(){
         if(localStorage.getItem("token")==undefined){

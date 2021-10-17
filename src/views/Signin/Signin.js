@@ -21,14 +21,17 @@ export default{
         const rules = computed(()=>{
             return {
                 email:{
-                required,
+                required: helpers.withMessage("Enter Email",required),
                 email,
             mustBeLearnVue:helpers.withMessage(
                 'Must be learnvue',
                 mustBeLearnVue
             ),
                 },
-                password:{required , minLength:minLength(6) },
+                password:{
+                    required:helpers.withMessage("Enter Password",required) ,
+                     minLength:helpers.withMessage("Enter atleast 6 letters ",minLength(6)) 
+                    },
             }
         })
         const v$=useValidate(rules,state)
@@ -40,10 +43,10 @@ export default{
     
     methods:{
         submitForm(){
-            
+            this.v$.$validate()
             
             console.log(this.state.email);
-            
+            if(!this.v$.$error){
             let data={
                     
                     email:this.state.email,
@@ -60,6 +63,7 @@ export default{
              console.log(err);
          })
         }
+    }
     }
 }
 

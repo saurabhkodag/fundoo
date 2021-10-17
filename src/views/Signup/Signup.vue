@@ -7,13 +7,15 @@
         <div class="signup_left">
             <img class="logos" src="@/assets/fundoo.png">
             <div class="head">Create your Google Account</div>
+            <div class="m_height">
             <div class="names">
             <Input v-bind:inputType="'text'" v-bind:id="'fname'" v-bind:placeHolder="'First Name'" v-bind:error="v$.fname.$error" v-model:data.sync="state.fname"/>
             <Input v-bind:inputType="'text'" v-bind:id="'Last Name'" v-bind:placeHolder="'Last Name'" v-bind:error="v$.lname.$error" v-model:data.sync="state.lname" />
             </div>
-            <span class="error" v-if="v$.fname.$error">
+            <span class="error" style="padding:5%" v-if="v$.fname.$error">
                 {{v$.fname.$errors[0].$message}}
             </span>
+            </div>
             <div class="uname">
             <!-- <input type="text" class="uname" placeholder="Username" name="Username" v-model="state.email"> -->
             <Input v-bind:inputType="'text'" v-bind:id="'Username'" v-bind:placeHolder="'Username'" v-bind:error="v$.email.$error" v-model:data.sync="state.email" />
