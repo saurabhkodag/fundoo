@@ -93,13 +93,13 @@ export default{
         //         };
         //    const urls="/reset/"+this.$route.params.token;
         //     axiosclass.operation(data,urls); 
-            this.v$.$validate()
-            // if(!this.v$.$error){
-                // let newdata={
-                //     password:this.state.password.confirm,
+            // this.v$.$validate()
+            // // if(!this.v$.$error){
+                let newdata={
+                    password:this.state.password.confirm,
                     
-                // };
-             axios.patch("http://localhost:3200/reset_password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTNkZGE5NDVhN2Q3ZTQ0ZjE5NTNjMTkiLCJpYXQiOjE2MzE2MjEwNDR9.VrFo4YaxeSSnDUl7xV4d-ZsXPRQdmdTgQ4rJf5PhbKc",this.state.password.confirm).then((res)=>{
+                };
+                 axios.patch("http://localhost:3200/reset_password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTNkZGE5NDVhN2Q3ZTQ0ZjE5NTNjMTkiLCJpYXQiOjE2MzE2MjEwNDR9.VrFo4YaxeSSnDUl7xV4d-ZsXPRQdmdTgQ4rJf5PhbKc",newdata).then((res)=>{
                    
                    console.log(res);
                 })
@@ -107,11 +107,11 @@ export default{
                     console.log(err);
                 })
             
-            // }
+            }
             
         }
-    }
 }
+
 </script>
 <style scoped>
 @import './reset.scss'

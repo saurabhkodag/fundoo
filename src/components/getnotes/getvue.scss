@@ -1,10 +1,33 @@
 .infoblock{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 .eachblock{
-    margin: 10%;
+    margin: 3%;
      border: 1px solid #e0e0e0;
      border-radius: 5%;
-     padding: 10%;
+     padding: 3% 3% 0% 3%;
+     min-height: 98px;
+     font-family: 'Google Sans',Roboto,Arial,sans-serif;
+     font-size: 1.125rem;
+     font-weight: 400;
+     letter-spacing: 0;
+     line-height: 1.5rem;
 }
+.info_mid{
+    padding-bottom:20%;
+}
+.info_title{
+    letter-spacing: .00625em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    padding-top: 12px;
+}
+.info_down{
+     display: flex;
+    justify-content: space-evenly;
+    
+}
+
