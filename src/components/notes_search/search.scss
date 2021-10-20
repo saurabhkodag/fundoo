@@ -14,7 +14,7 @@
 }
 .esearch_main{
     display: flex;
-    
+    padding-top: 8%;
     align-items: center;
     margin-top: 100px;
     margin-left: 25%;
@@ -36,6 +36,9 @@
 .down{
     display: flex;
     flex-direction: row;
+}
+.ht{
+    max-height: 50%;
 }
 .bt{
     display: flex;
