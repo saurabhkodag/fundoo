@@ -13,8 +13,8 @@
         </div>
     <div v-else class="esearch_main">
         <div class="esearch">
-        <input type="text" placeholder="Title" id="note" name="note" style="display: flex;height: 40px!important;border: none;width: 500px;font-size: .875rem;font-family: Roboto,Arial,sans-serif;line-height: 1.25rem; ">
-        <input type="text" placeholder="Take a note..." id="note" name="note" style="display: flex;height: 40px!important;border: none;width: 500px;font-size: .875rem;font-family: Roboto,Arial,sans-serif;line-height: 1.25rem; ">
+        <input type="text" placeholder="Title"   id="note" name="note" v-model="title" style="display: flex;height: 40px!important;border: none;width: 500px;font-size: .875rem;font-family: Roboto,Arial,sans-serif;line-height: 1.25rem; ">
+        <input type="text" placeholder="Take a note..." v-model="description" id="note" name="note" style="display: flex;height: 40px!important;border: none;width: 500px;font-size: .875rem;font-family: Roboto,Arial,sans-serif;line-height: 1.25rem; ">
         <div class="down">
             <div class="d_left">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" style="padding-left:20px" width="24px" fill="grey"><path d="M10.01 21.01c0 1.1.89 1.99 1.99 1.99s1.99-.89 1.99-1.99h-3.98zM12 6c2.76 0 5 2.24 5 5v7H7v-7c0-2.76 2.24-5 5-5zm0-4.5c-.83 0-1.5.67-1.5 1.5v1.17C7.36 4.85 5 7.65 5 11v6l-2 2v1h18v-1l-2-2v-6c0-3.35-2.36-6.15-5.5-6.83V3c0-.83-.67-1.5-1.5-1.5zM13 8h-2v3H8v2h3v3h2v-3h3v-2h-3z"/></svg>
@@ -36,14 +36,37 @@
     </div>
 </template>
 <script>
+import axios from "axios";
 export default{
   data(){
         return{
-            test: true
+            test: true,
+            title:'',
+            description:''
         }
     },
     methods: {
         newNoteSwitch(){
+            let data={
+                title: this.title,
+                description: this.description,
+                
+                 "isPinned": false,
+                 "isArchived": true,
+                 "isDeleted": true,
+                "color": "#asda",
+            }
+            const headers = {
+             'Content-Type': 'application/json',
+            'auth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTNkZGE5NDVhN2Q3ZTQ0ZjE5NTNjMTkiLCJpYXQiOjE2MzE2MjEwNDR9.VrFo4YaxeSSnDUl7xV4d-ZsXPRQdmdTgQ4rJf5PhbKc'
+            }
+            axios.post("http://localhost:3200/noteadd",data,{headers:headers}).then((res)=>{
+                    console.log(res);
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
+
             this.test = !this.test
         }
     },
