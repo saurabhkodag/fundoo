@@ -1,11 +1,28 @@
 <template>
 
 <Texts/>
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  <div class="infoblock">
          
      <div v-for="objj in this.response" :key="objj.id"> 
          
-          <div class="eachblock" :style="{backgroundColor:objj.color}" >
+          <div class="eachblock" :style="{backgroundColor:objj.color}" @click="changeText('fixcolor','fixtitle','fixdescription',objj.color,objj.title,objj.description)" >
               
          <div class="info_title" >
          {{objj.title}}
@@ -18,26 +35,26 @@
          <div class="info_down">
              <div v-if="disp"  @mouseover="this.disp=true" @mouseleave="this.disp=false" class="palette">
               <div class="one">
-              <div class="p_white "></div>
-              <div class="p_teal"></div>
-              <div class="p_brown"></div>
+              <div class="p_white"  @click="changeColor('test',objj._id ,'white')"></div>
+              <div class="p_teal" @click="changeColor('test',objj._id ,'teal')"></div>
+              <div class="p_brown" @click="changeColor('test',objj._id ,'brown')"></div>
               </div>
               <div class="two">
-              <div class="p_red"></div>
-              <div class="p_blue"></div>
-              <div class="p_grey"></div>
+              <div class="p_red" @click="changeColor('test',objj._id ,'red')"></div>
+              <div class="p_blue" @click="changeColor('test',objj._id ,'blue')"></div>
+              <div class="p_grey" @click="changeColor('test',objj._id ,'grey')"></div>
               </div>
               <div class="three">
-              <div class="p_orange"></div>
-              <div class="p_darkblue"></div>
+              <div class="p_orange" @click="changeColor('test',objj._id ,'orange')"></div>
+              <div class="p_darkblue" @click="changeColor('test',objj._id ,'darkblue')"></div>
               </div>
               <div class="four">
-              <div class="p_yellow"></div>
-              <div class="p_purple"></div>
+              <div class="p_yellow" @click="changeColor('test',objj._id ,'yellow')"></div>
+              <div class="p_purple" @click="changeColor('test',objj._id ,'purple')"></div>
               </div>
               <div class="five">
-              <div class="p_green"></div>
-              <div class="p_pink"></div>
+              <div class="p_green" @click="changeColor('test',objj._id ,'green')"></div>
+              <div class="p_pink" @click="changeColor('test',objj._id ,'pink')"></div>
               </div>
             </div>
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"  width="18px" fill="grey"><path d="M10.01 21.01c0 1.1.89 1.99 1.99 1.99s1.99-.89 1.99-1.99h-3.98zM12 6c2.76 0 5 2.24 5 5v7H7v-7c0-2.76 2.24-5 5-5zm0-4.5c-.83 0-1.5.67-1.5 1.5v1.17C7.36 4.85 5 7.65 5 11v6l-2 2v1h18v-1l-2-2v-6c0-3.35-2.36-6.15-5.5-6.83V3c0-.83-.67-1.5-1.5-1.5zM13 8h-2v3H8v2h3v3h2v-3h3v-2h-3z"/></svg>
@@ -50,7 +67,8 @@
         </div>
       </div>
       </div>
-      
+      <notepop v-if="getit" :colorr="this.ucolor" :titler="this.utitle" :descriptionr="this.udes" />
+ 
     
 </template>
 <script>
@@ -58,6 +76,7 @@ import useValidate from '@vuelidate/core'
 import { required ,email,minLength,sameAs,helpers} from '@vuelidate/validators'
 import {reactive,computed} from 'vue'
 import axios from "axios";
+import notepop from '@/components/notepopup/notepop.vue';
 // import axiosclass from '@/service/axiosservice.js'
 // import Input from '@/components/Input/TextInput.vue';
 import Texts from '@/components/text/text.vue'
@@ -66,10 +85,15 @@ export default{
         return{
         response:"",
         ids:"",
-        disp:false
+        disp:false,
+        ucolor:"",
+        utitle:"",
+        udes:"",
+        getit:false
         }
     },
     created() {
+        
         let newdata={
                     password:this.state.confirm,
                     
@@ -86,6 +110,8 @@ export default{
     components:{
        
         Texts,
+        notepop
+        
     },
      setup(){
         const state=reactive({
@@ -154,6 +180,38 @@ export default{
                 .catch((err)=>{
                     console.log(err);
                 })
+        },
+        changeColor(prop,val,ccolor){
+            const headers = {
+             'Content-Type': 'application/json',
+            'auth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTNkZGE5NDVhN2Q3ZTQ0ZjE5NTNjMTkiLCJpYXQiOjE2MzE2MjEwNDR9.VrFo4YaxeSSnDUl7xV4d-ZsXPRQdmdTgQ4rJf5PhbKc'
+            }
+            let data={
+                color:ccolor,
+            }
+            this[prop]=val;
+            console.log(this.test);
+          axios.post(`http://localhost:3200/noteUpdate/${this.test}`,data,{headers:headers}).then((res)=>{
+                    console.log(res);
+                    window.location.reload();
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
+        },
+        changeText(prop1,prop2,prop3,val1,val2,val3){
+            
+            
+            this[prop1]=val1;
+            this[prop2]=val2;
+            this[prop3]=val3;
+            this.ucolor=val1;
+            this.utitle=val2;
+            this.udes=val3;
+            this.getit=true;
+            console.log(this.ucolor);
+            console.log(this.utitle);
+            console.log(this.udes);
         },
         submitForm(){
         //     this.v$.$validate()

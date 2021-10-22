@@ -1,0 +1,124 @@
+.infoblock{
+    position:absolute;
+    top: 400px;
+    left: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.eachblock{
+    width: 500px;
+    margin: 3%;
+     border: 1px solid #e0e0e0;
+     border-radius: 5%;
+     padding: 3% 3% 0% 3%;
+     min-height: 98px;
+     font-family: 'Google Sans',Roboto,Arial,sans-serif;
+     font-size: 2.125rem;
+     font-weight: 400;
+     letter-spacing: 0;
+     line-height: 1.5rem;
+     .info_down{
+        visibility: hidden;
+        display: flex;
+        justify-content: space-evenly;
+        svg{
+            width: 5%;
+            height: 100%;
+        }
+    }
+    
+}
+.eachblock:hover{
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    
+    .info_down{
+    visibility: visible;
+    display: flex;
+    justify-content: space-evenly;
+    
+    }
+    
+    svg:hover{
+        background-color: lightgrey;
+        border-radius: 100%;
+        background-size: 1140px 1140px;
+    }
+}
+.info_mid{
+    margin-top: 10%;
+    padding-bottom:20%;
+}
+.info_title{
+    letter-spacing: .00625em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    padding-top: 12px;
+}
+.cc:hover{
+    background-color: yellow !important;
+    
+}
+.palette{
+    
+    position: absolute;
+    top: 390px;
+    width: 190px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    border:1px solid grey;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    
+    margin-left: 5%;
+    .p_blue ,.p_grey , .p_white ,.p_teal , .p_brown, .p_orange , .p_red , .p_yellow , .p_darkblue , .p_yellow , .p_purple , .p_green , .p_pink{
+        margin: 10%;
+        width: 30px;
+        height: 30px; 
+        border:1px solid lightgray;
+        border-radius: 100%;
+    }
+    .p_blue{
+        background-color: blue;
+    }.p_grey{
+        background-color: grey;
+    }.p_white{
+        background-color: white;
+    } .p_teal{
+        background-color: teal;
+    } 
+    .p_brown{
+        background-color: brown;
+    } 
+    .p_orange{
+        background-color: orange;
+    } 
+     .p_red{
+         background-color: red;
+     } 
+      .p_yellow{
+          background-color: yellow;
+      }  
+      .p_darkblue{
+            background-color: darkblue;
+      } 
+    .p_purple{
+        background-color: purple;
+    } 
+    .p_green{
+        background-color: green;
+    } 
+    .p_pink{
+        background-color: pink;
+    }
+    .one  , .two , .three , .four , .five{
+    
+        margin: 1%;
+    }
+    
+    
+}
+
+
+
