@@ -1,13 +1,12 @@
 <template>
-  <div v-if="!colorr" class="infoblock">  
-          <div class="eachblock" :style="{backgroundColor:colorr}" >
-              
+  <div  class="infoblock" >  
+          <div class="eachblock"  :style="{backgroundColor:colorr}">
+             
          <div class="info_title" >
-         {{titler}}
-        
+        <input class="tt" id="tt" type="text"  :value=titler>
          </div>  
           <div class="info_mid">
-          {{descriptionr}}
+          <input id="dd" type="text"  :value=descriptionr>
           </div>
           
          <div class="info_down">
@@ -41,6 +40,10 @@
                 <svg xmlns="http://www.w3.org/2000/svg"  height="24px" viewBox="0 0 24 24"  width="18px" fill="grey"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.86 8.86l-3 3.87L9 13.14 6 17h12l-3.86-5.14z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg"  @click="archive('test',objj._id)"  height="24px" viewBox="0 0 24 24"  width="18px" fill="grey"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.81.97H5.44l.8-.97zM5 19V8h14v11H5zm8.45-9h-2.9v3H8l4 4 4-4h-2.55z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" @click="ddelete('test',objj._id)" height="24px" viewBox="0 0 24 24"  width="18px" fill="grey"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                <div class="d_right">
+                <button type="button" v-on:click="newNoteSwitch() ; updatedata() ;" class="bt" >Close</button>
+            {{dis}}
+            </div>
         </div>
         </div>
       </div>
@@ -48,6 +51,10 @@
 <script>
 export default{
     name:'notepop',
+    inheritAttrs: false,
+    data(){
+        this.dis=true
+    },
     props:{
         colorr:{
             type:String
@@ -57,6 +64,20 @@ export default{
         },
         descriptionr:{
             type:String
+        },
+        getit:{
+            type:Boolean
+        }
+    },
+    methods:{
+        newNoteSwitch(){
+            this.dis=false;
+            console.log(document.getElementById('tt').value);
+            this.$emit('eventname')
+            
+        },
+        updatedata(){
+            console.log("HI");
         }
     }
 }

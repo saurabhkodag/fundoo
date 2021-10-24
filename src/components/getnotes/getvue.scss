@@ -1,7 +1,7 @@
-.infoblock{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
+// .infoblock{
+//     display: grid;
+//     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+// }
 .eachblock{
     margin: 3%;
      border: 1px solid #e0e0e0;
@@ -9,7 +9,7 @@
      padding: 3% 3% 0% 3%;
      min-height: 98px;
      font-family: 'Google Sans',Roboto,Arial,sans-serif;
-     font-size: 1.125rem;
+     font-size: 0.925rem;
      font-weight: 400;
      letter-spacing: 0;
      line-height: 1.5rem;
@@ -18,8 +18,9 @@
         display: flex;
         justify-content: space-evenly;
         svg{
-            width: 13%;
-            height: 100%;
+            width: 20px;
+            height: 20px;
+            padding: 3%;
         }
     }
     
@@ -38,7 +39,7 @@
         
         background-color: lightgrey;
         border-radius: 100%;
-        background-size: 1140px 1140px;
+        // background-size: 1140px 1140px;
     }
 }
 .info_mid{
@@ -47,8 +48,8 @@
 .info_title{
     letter-spacing: .00625em;
     font-family: 'Google Sans',Roboto,Arial,sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 540;
     line-height: 1.5rem;
     padding-top: 12px;
 }
@@ -57,9 +58,11 @@
     
 }
 .palette{
-    
+    .eachblock{
+        pointer-events: none;
+    }
     position: absolute;
-    top: 390px;
+    top: 170px;
     width: 190px;
     background-color: white;
     display: flex;

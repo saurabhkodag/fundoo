@@ -8,5 +8,7 @@
     width: 100%;
 }
 .content_right_notes{
-    padding: 10%;
+    padding: 2% 10% 10% 10%;
+    display: grid;
+     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }

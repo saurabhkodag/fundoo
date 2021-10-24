@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-
+import NoteStore from './module/note'
 export default createStore({
   state: {
   },
@@ -8,5 +8,6 @@ export default createStore({
   actions: {
   },
   modules: {
+    NoteStore
   }
 })

@@ -131,16 +131,19 @@ a{
     }
     .nsignin_main{
         width: 60%;
+        margin-top: 30%;
         
     }
     
 }
+
 @media screen and (max-width: 600px) {
     .ncontainer_lspace , .ncontainer_rspace{
         width: 0%;
     }
     
     .nsignin_main{
+        
         width: 100%;
         border:none;
         padding: 0%;
