@@ -1,18 +1,30 @@
+
+
+
 .tt ,.bt{
     border: none;
     background: none;
 }
+.tt{
+    font-size: 30px;
+    padding: 15px;
+    height: 0px;
+}
 #dd{
     border: none;
     background: none;
+    font-size: 20px;
 }
+
 
 .infoblock{
     position:absolute;
-    top: 400px;
+    top: 200px;
     left: 500px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
+}
+.content_right_notes{
+    background-color: black;
 }
 .eachblock{
     width: 500px;
@@ -53,10 +65,7 @@
         background-size: 1140px 1140px;
     }
 }
-.info_mid{
-    margin-top: 10%;
-    padding-bottom:20%;
-}
+
 .info_title{
     letter-spacing: .00625em;
     font-family: 'Google Sans',Roboto,Arial,sans-serif;

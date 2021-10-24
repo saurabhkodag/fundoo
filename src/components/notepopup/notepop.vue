@@ -1,9 +1,11 @@
 <template>
+
   <div  class="infoblock" >  
           <div class="eachblock"  :style="{backgroundColor:colorr}">
              
          <div class="info_title" >
         <input class="tt" id="tt" type="text"  :value=titler>
+        
          </div>  
           <div class="info_mid">
           <input id="dd" type="text"  :value=descriptionr>
@@ -38,22 +40,28 @@
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"  width="18px" fill="grey"><path d="M20,9V6h-2v3h-3v2h3v3h2v-3h3V9H20z M9,12c2.21,0,4-1.79,4-4c0-2.21-1.79-4-4-4S5,5.79,5,8C5,10.21,6.79,12,9,12z M9,6 c1.1,0,2,0.9,2,2c0,1.1-0.9,2-2,2S7,9.1,7,8C7,6.9,7.9,6,9,6z M15.39,14.56C13.71,13.7,11.53,13,9,13c-2.53,0-4.71,0.7-6.39,1.56 C1.61,15.07,1,16.1,1,17.22V20h16v-2.78C17,16.1,16.39,15.07,15.39,14.56z M15,18H3v-0.78c0-0.38,0.2-0.72,0.52-0.88 C4.71,15.73,6.63,15,9,15c2.37,0,4.29,0.73,5.48,1.34C14.8,16.5,15,16.84,15,17.22V18z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" @mouseover="this.disp=true"  height="24px" viewBox="0 0 24 24"  width="18px" fill="grey"><path d="M12,22C6.49,22,2,17.51,2,12S6.49,2,12,2s10,4.04,10,9c0,3.31-2.69,6-6,6h-1.77c-0.28,0-0.5,0.22-0.5,0.5 c0,0.12,0.05,0.23,0.13,0.33c0.41,0.47,0.64,1.06,0.64,1.67C14.5,20.88,13.38,22,12,22z M12,4c-4.41,0-8,3.59-8,8s3.59,8,8,8 c0.28,0,0.5-0.22,0.5-0.5c0-0.16-0.08-0.28-0.14-0.35c-0.41-0.46-0.63-1.05-0.63-1.65c0-1.38,1.12-2.5,2.5-2.5H16 c2.21,0,4-1.79,4-4C20,7.14,16.41,4,12,4z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg"  height="24px" viewBox="0 0 24 24"  width="18px" fill="grey"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.86 8.86l-3 3.87L9 13.14 6 17h12l-3.86-5.14z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg"  @click="archive('test',objj._id)"  height="24px" viewBox="0 0 24 24"  width="18px" fill="grey"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.81.97H5.44l.8-.97zM5 19V8h14v11H5zm8.45-9h-2.9v3H8l4 4 4-4h-2.55z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg"  @click="archive()"  height="24px" viewBox="0 0 24 24"  width="18px" fill="grey"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.81.97H5.44l.8-.97zM5 19V8h14v11H5zm8.45-9h-2.9v3H8l4 4 4-4h-2.55z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" @click="ddelete('test',objj._id)" height="24px" viewBox="0 0 24 24"  width="18px" fill="grey"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                <div class="d_right">
-                <button type="button" v-on:click="newNoteSwitch() ; updatedata() ;" class="bt" >Close</button>
-            {{dis}}
+                <div class="d_rightt">
+                <button type="button" v-on:click="newNoteSwitch()" class="bt" >Close</button>
+           
             </div>
         </div>
         </div>
       </div>
+     
 </template> 
 <script>
+import { mapActions } from 'vuex';
+import axios from "axios";
 export default{
     name:'notepop',
     inheritAttrs: false,
     data(){
-        this.dis=true
+        return {
+        aarchived:false,
+        adelete:false
+        }
     },
     props:{
         colorr:{
@@ -67,13 +75,41 @@ export default{
         },
         getit:{
             type:Boolean
+        },
+        id:{
+            type:String
         }
     },
     methods:{
+         ...mapActions(['fetchNotes']),
+        archive(){
+            
+            this.aarchived=true;
+            console.log(this.aarchived)
+        },
+        
         newNoteSwitch(){
             this.dis=false;
-            console.log(document.getElementById('tt').value);
-            this.$emit('eventname')
+            let data={
+                title:document.getElementById('tt').value,
+                description:document.getElementById('dd').value,
+                arch:this.aarchived,
+                del:this.adelete,
+                id:this.id,
+            }
+            console.log(this.aarchived);
+            const headers = {
+             'Content-Type': 'application/json',
+            'auth': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTNkZGE5NDVhN2Q3ZTQ0ZjE5NTNjMTkiLCJpYXQiOjE2MzE2MjEwNDR9.VrFo4YaxeSSnDUl7xV4d-ZsXPRQdmdTgQ4rJf5PhbKc'
+            }
+             axios.post(`http://localhost:3200/noteUpdate/${this.id}`,data,{headers:headers}).then((res)=>{
+                    console.log(res);
+                    this.fetchNotes();
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
+          this.$emit('eventname')
             
         },
         updatedata(){
