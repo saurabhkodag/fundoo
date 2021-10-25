@@ -30,14 +30,14 @@
             <!-- <input type="text" class="Pass" placeholder="Password" name="Password" v-model="state.password.password"> -->
             <Input v-bind:inputType="'password'" v-bind:id="'password'" v-bind:placeHolder="'Password'" v-bind:error="false" />
             <!-- <input type="text" class="Confirm" placeholder="Confirm" name="Confirm" v-model="state.password.confirm"> -->
-            <Input v-bind:inputType="'password'" v-bind:id="'Confirm'" v-bind:placeHolder="'Confirm'" v-bind:error="v$.password.confirm.$error" v-model:data.sync="state.password.confirm" />
+            <Input v-bind:inputType="'password'"  v-model:data.sync="state.password.confirm" />
             </div>
-            <span class="error" v-if="v$.password.password.$error">
+            <!-- <span class="error" v-if="v$.password.password.$error">
                 {{v$.password.password.$errors[0].$message}}
             </span>
             <span class="error" v-if="v$.password.confirm.$error">
                 {{v$.password.confirm.$errors[0].$message}}
-            </span>
+            </span> -->
             <div class="txt1">Use 8 or more characters with a mix of letters, numbers & symbols</div>
             <div class="ccbox">
            <input class="cbox" type="checkbox" id="spass" name="spass" value="spass"  style="zoom:1.5;">

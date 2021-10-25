@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 280px;
     margin-top: 4px;
+    // z-index: 6000;
 }
 
 .routes{
@@ -46,6 +47,10 @@
     width: max-content;
     height: 100vh;
     margin-top: 4px;
+    // position: fixed;
+    left: 10px;
+    background-color: #fff;
+    // z-index: 6000;
 }
 
 .routes1{
@@ -96,3 +101,55 @@
         }
     }
 }
+.bt-n{
+    border:none;
+}
+
+@media screen and (max-width: 480px) {
+    .routes{
+        height: 40px;
+        width: 280px;
+        svg{
+            height: 20px;
+            width: 20px;
+            padding: 0 6px;
+        }
+    }
+    .routes1{
+        height: 40px;
+        min-width: 34px;
+        svg{
+            height: 20px;
+            width: 20px;
+            padding: 0 6px;
+        }
+    }
+    .side-navigation-div{
+        background-color: #fff;
+        width: 280px;
+        height: 100vh;
+        position: fixed;
+        padding-right: 5px;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        z-index: 6000;
+    }
+    .side-navigation-div1:hover{
+        position: fixed;
+        width: 280px;
+        z-index: 6000;
+    }
+} 
+
+@media screen and (max-width: 320px) {
+    .routes{
+        width: 220px;
+    }
+    .side-navigation-div{
+        width: 220px;
+        z-index: 6000;
+    }
+    .side-navigation-div1:hover{
+        width: 220px;
+        z-index: 6000;
+    }
+} 
